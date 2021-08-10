@@ -5,17 +5,21 @@ GO
 USE SENAI_HROADS_TARDE
 GO
 
-CREATE TABLE PERSONAGEM(
-	idPersonagem INT PRIMARY KEY IDENTITY,
-	nomePersonagem VARCHAR(20)
-);
-GO
-
 
 CREATE TABLE CLASSE(
 	idClasse INT PRIMARY KEY IDENTITY,
-	idPersonagem INT FOREIGN KEY REFERENCES PERSONAGEM(idPersonagem),
 	nomeClasse VARCHAR(15)
+);
+GO
+
+CREATE TABLE PERSONAGEM(
+	idPersonagem INT PRIMARY KEY IDENTITY,
+	idClasse INT FOREIGN KEY REFERENCES CLASSE(idClasse),
+	nomePersonagem VARCHAR(20),
+	capMana TINYINT,
+	capVida TINYINT,
+	dataAtt DATE,
+	dataCriacao DATE
 );
 GO
 
@@ -43,3 +47,5 @@ CREATE TABLE TIPO_H(
 );
 GO
 
+ 
+   
